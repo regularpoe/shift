@@ -9,10 +9,15 @@ local wait = false
 local waitTime = 0.5
 local waitTimer = 0
 
+local fontSize = 30
+
 function love.load()
     love.window.setTitle("shift")
     love.window.setMode(windowWidth, windowHeight)
     math.randomseed(os.time())
+
+    local font = love.graphics.newFont(fontSize)
+    love.graphics.setFont(font)
 
     local numbers = {}
     for i = 1, (gridSize * gridSize) / 2 do
