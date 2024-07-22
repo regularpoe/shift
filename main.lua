@@ -57,9 +57,15 @@ function love.draw()
     for y = 1, gridSize do
         for x = 1, gridSize do
             local xPos, yPos = (x - 1) * cellWidth, (y - 1) * cellHeight
+
+            love.graphics.setColor(0, 0, 0)
             love.graphics.rectangle("line", xPos, yPos, cellWidth, cellHeight)
 
+            love.graphics.setColor(1, 1, 1)
+            love.graphics.rectangle("fill", xPos, yPos, cellWidth, cellHeight)
+
             if revealed[y][x] or (firstSelection and firstSelection.x == x and firstSelection.y == y) or (secondSelection and secondSelection.x == x and secondSelection.y == y) then
+                love.graphics.setColor(0, 0, 0)
                 love.graphics.printf(grid[y][x], xPos, yPos + cellHeight / 2 - 10, cellWidth, "center")
             end
         end
